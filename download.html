@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>discovery — скачать</title>
+<meta name="description" content="Скачать discovery 1.0.0: бинарники под macOS, Windows и Linux (arm64/x86_64), условия пробного периода и инструкция по установке.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9' fill='none' stroke='%2335b6a6' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='5' fill='none' stroke='%2335b6a6' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='1.6' fill='%2335b6a6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .dl-hero { padding: 4rem 0 3.5rem; }
+  .dl-hero .eyebrow { margin-bottom: 1rem; }
+  .dl-hero h1 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); margin-bottom: 1rem; }
+  .version-pill {
+    display: inline-flex; align-items: center; gap: .5rem; font-family: var(--font-mono);
+    font-size: .78rem; font-weight: 700; letter-spacing: .04em; color: var(--accent-strong);
+    background: color-mix(in srgb, var(--accent) 14%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
+    border-radius: var(--radius-pill); padding: .3rem .8rem .3rem .6rem; margin-bottom: 1.1rem;
+  }
+  .version-pill .dot { width: .4rem; height: .4rem; border-radius: 50%; background: var(--status-ok); }
+
+  .platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  @media (max-width: 900px) { .platform-grid { grid-template-columns: 1fr; } }
+  .platform-card {
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 1.75rem; display: flex; flex-direction: column; gap: 1.1rem;
+  }
+  .platform-card__head { display: flex; align-items: center; gap: .75rem; }
+  .platform-card__head .pi {
+    width: 2.6rem; height: 2.6rem; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;
+    background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); flex-shrink: 0;
+  }
+  .platform-card__head .pi .ic { width: 1.35rem; height: 1.35rem; }
+  .platform-card__head h3 { font-size: 1.15rem; }
+  .platform-card__head span { display: block; font-size: .78rem; color: var(--text-muted); margin-top: .1rem; }
+  .dl-list { display: flex; flex-direction: column; gap: .6rem; }
+  .dl-item {
+    display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+    border: 1px solid var(--border); border-radius: var(--radius-sm); padding: .7rem .9rem;
+    transition: border-color .15s var(--ease), background .15s var(--ease);
+  }
+  .dl-item:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }
+  .dl-item__label { display: flex; flex-direction: column; gap: .15rem; }
+  .dl-item__name { font-family: var(--font-mono); font-size: .82rem; font-weight: 600; }
+  .dl-item__meta { font-size: .72rem; color: var(--text-muted); }
+  .dl-item .ic { width: 1.05rem; height: 1.05rem; color: var(--accent); flex-shrink: 0; }
+  .platform-card__note { font-size: .82rem; color: var(--text-secondary); line-height: 1.55; }
+  .platform-card__note code { font-size: .85em; }
+
+  .checksums-toggle { margin-top: 2rem; }
+  .checksums-toggle summary {
+    cursor: pointer; font-family: var(--font-mono); font-size: .8rem; color: var(--text-secondary);
+    display: inline-flex; align-items: center; gap: .4rem;
+  }
+  .checksums-toggle summary:hover { color: var(--text-primary); }
+  .checksums-box {
+    margin-top: .9rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-md);
+    padding: 1rem 1.2rem; overflow-x: auto;
+  }
+  .checksums-box pre { font-family: var(--font-mono); font-size: .74rem; color: var(--text-secondary); line-height: 1.7; white-space: pre; }
+
+  .limits-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+  .limits-table th, .limits-table td { text-align: left; padding: .75rem 1rem; border-bottom: 1px solid var(--border); font-size: .88rem; }
+  .limits-table th { color: var(--text-muted); font-weight: 600; font-size: .74rem; text-transform: uppercase; letter-spacing: .05em; }
+  .limits-table td:last-child, .limits-table th:last-child { font-family: var(--font-mono); color: var(--accent-strong); font-weight: 700; text-align: right; }
+  .limits-table tr:last-child td { border-bottom: none; }
+  .limits-wrap { overflow-x: auto; }
+
+  .expire-note {
+    margin-top: 1.5rem; display: flex; gap: .8rem; align-items: flex-start;
+    background: color-mix(in srgb, var(--status-critical) 8%, var(--surface-2)); border: 1px solid color-mix(in srgb, var(--status-critical) 28%, var(--border));
+    border-radius: var(--radius-md); padding: 1.1rem 1.3rem;
+  }
+  .expire-note .ic { width: 1.15rem; height: 1.15rem; color: var(--status-critical); margin-top: .15rem; flex-shrink: 0; }
+  .expire-note p { font-size: .9rem; color: var(--text-secondary); line-height: 1.6; }
+  .expire-note strong { color: var(--text-primary); }
+
+  .steps { counter-reset: step; display: flex; flex-direction: column; gap: 1.1rem; margin-top: 1.5rem; }
+  .step { display: flex; gap: 1rem; }
+  .step__num {
+    counter-increment: step; flex-shrink: 0; width: 1.9rem; height: 1.9rem; border-radius: 50%;
+    background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent-strong);
+    display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 700; font-size: .85rem;
+  }
+  .step__num::before { content: counter(step); }
+  .step__body p { font-size: .9rem; color: var(--text-secondary); line-height: 1.6; }
+  .step__body code, .step__body .code-block { display: inline-block; margin-top: .4rem; }
+  .code-block {
+    display: block; background: var(--surface-3); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: .55rem .8rem; font-family: var(--font-mono); font-size: .8rem; color: var(--text-primary); margin-top: .5rem;
+    overflow-x: auto; white-space: pre;
+  }
+
+  .caveat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr)); gap: 1.1rem; margin-top: 1.5rem; }
+  .caveat-card {
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-md);
+    padding: 1.3rem 1.4rem; display: flex; flex-direction: column; gap: .6rem;
+  }
+  .caveat-card .ic { width: 1.1rem; height: 1.1rem; color: var(--status-warning); }
+  .caveat-card h4 { font-size: .92rem; }
+  .caveat-card p { font-size: .84rem; color: var(--text-secondary); line-height: 1.55; }
+</style>
+</head>
+<body>
+
+<svg class="icon-sprite" aria-hidden="true">
+  <defs>
+    <symbol id="ic-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12 18 7"/><circle cx="12" cy="12" r="1" class="ic-fill"/></symbol>
+    <symbol id="ic-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="ic-telegram" viewBox="0 0 24 24"><path d="M21 4 3 11.5l6 2M21 4l-3 16-8-6M21 4 10 13.5"/></symbol>
+    <symbol id="ic-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4.5-4.5M12 15 7.5 10.5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+    <symbol id="ic-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="ic-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.5 2.5L16 9.5"/></symbol>
+    <symbol id="ic-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+    <symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+    <symbol id="ic-terminal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/></symbol>
+    <symbol id="ic-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></symbol>
+    <symbol id="ic-squares" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></symbol>
+    <symbol id="ic-triangle" viewBox="0 0 24 24"><path d="M12 4 22 20H2L12 4Z"/><path d="M12 10v4M12 17h.01"/></symbol>
+    <symbol id="ic-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  </defs>
+</svg>
+
+<header class="site">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg class="ic"><use href="#ic-radar"/></svg>
+      <span>discovery<small>NETWORK OPS</small></span>
+    </a>
+    <nav class="site-nav">
+      <div class="nav-links">
+        <a href="index.html#features">Возможности</a>
+        <a href="index.html#look">Как это выглядит</a>
+        <a href="download.html">Скачать</a>
+        <a href="index.html#contact">Контакты</a>
+      </div>
+      <a class="btn btn-primary" href="mailto:komkov222111@gmail.com?subject=discovery%20%E2%80%94%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81">Написать</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="dl-hero">
+    <div class="wrap">
+      <span class="eyebrow"><svg class="ic"><use href="#ic-download"/></svg>Скачать</span>
+      <div class="version-pill"><span class="dot"></span>версия 1.0.0</div>
+      <h1>discovery под вашу ОС — без исходного кода, без сборки</h1>
+      <p class="lede">Бинарники и пакеты ниже — скомпилированный результат, не архив с исходниками: то же самое юридическое ограничение на копирование (<a href="https://raw.githubusercontent.com/seelentov/discovery-releases/main/v1.0.0/LICENSE.md" style="color:var(--accent-strong)">LICENSE.md</a>, тот же файл лежит внутри каждого архива), но без Docker/Rust/Node на вашей машине.</p>
+    </div>
+  </section>
+
+  <section id="platforms" style="padding-top:0">
+    <div class="wrap">
+
+      <div class="platform-grid">
+
+        <div class="platform-card">
+          <div class="platform-card__head">
+            <span class="pi"><svg class="ic"><use href="#ic-monitor"/></svg></span>
+            <div>
+              <h3>macOS</h3>
+              <span>Apple Silicon и Intel</span>
+            </div>
+          </div>
+          <div class="dl-list">
+            <a class="dl-item" href="https://raw.githubusercontent.com/seelentov/discovery-releases/main/v1.0.0/discovery-agent-1.0.0-macos-arm64.tar.gz">
+              <span class="dl-item__label">
+                <span class="dl-item__name">macos-arm64.tar.gz</span>
+                <span class="dl-item__meta">Apple Silicon (M1 и новее) · 16 МБ</span>
+              </span>
+              <svg class="ic"><use href="#ic-download"/></svg>
+            </a>
+            <a class="dl-item" href="https://raw.githubusercontent.com/seelentov/discovery-releases/main/v1.0.0/discovery-agent-1.0.0-macos-x86_64.tar.gz">
+              <span class="dl-item__label">
+                <span class="dl-item__name">macos-x86_64.tar.gz</span>
+                <span class="dl-item__meta">Intel · 17 МБ</span>
+              </span>
+              <svg class="ic"><use href="#ic-download"/></svg>
+            </a>
+          </div>
+          <p class="platform-card__note">Бинарник не подписан сертификатом разработчика Apple — при первом запуске Gatekeeper его заблокирует. В архиве это объяснено (<code>README.txt</code>): правый клик → «Открыть», либо <code>xattr -d com.apple.quarantine ./discovery-agent</code>.</p>
+        </div>
+
+        <div class="platform-card">
+          <div class="platform-card__head">
+            <span class="pi"><svg class="ic"><use href="#ic-squares"/></svg></span>
+            <div>
+              <h3>Windows</h3>
+              <span>x86_64</span>
+            </div>
+          </div>
+          <div class="dl-list">
+            <a class="dl-item" href="https://raw.githubusercontent.com/seelentov/discovery-releases/main/v1.0.0/discovery-agent-1.0.0-windows-x86_64.zip">
+              <span class="dl-item__label">
+                <span class="dl-item__name">windows-x86_64.zip</span>
+                <span class="dl-item__meta">discovery-agent.exe + конфиг · 24 МБ</span>
+              </span>
+              <svg class="ic"><use href="#ic-download"/></svg>
+            </a>
+          </div>
+          <p class="platform-card__note">Без цифровой подписи издателя — SmartScreen при первом запуске покажет «Windows защитила ваш компьютер». Это ожидаемо для непромышленного распространения, не признак повреждённого файла: «Подробнее» → «Выполнить в любом случае».</p>
+        </div>
+
+        <div class="platform-card">
+          <div class="platform-card__head">
+            <span class="pi"><svg class="ic"><use href="#ic-terminal"/></svg></span>
+            <div>
+              <h3>Linux</h3>
+              <span>.deb / .rpm, arm64 и x86_64</span>
+            </div>
+          </div>
+          <div class="dl-list">
+            <a class="dl-item" href="https://raw.githubusercontent.com/seelentov/discovery-releases/main/v1.0.0/discovery-agent-1.0.0-linux-x86_64.deb">
+              <span class="dl-item__label">
+                <span class="dl-item__name">linux-x86_64.deb</span>
+                <span class="dl-item__meta">Debian/Ubuntu · 9,5 МБ</span>
+              </span>
+              <svg class="ic"><use href="#ic-download"/></svg>
+            </a>
+            <a class="dl-item" href="https://raw.githubusercontent.com/seelentov/discovery-releases/main/v1.0.0/discovery-agent-1.0.0-linux-arm64.deb">
+              <span class="dl-item__label">
+                <span class="dl-item__name">linux-arm64.deb</span>
+                <span class="dl-item__meta">Debian/Ubuntu · 8,4 МБ</span>
+              </span>
+              <svg class="ic"><use href="#ic-download"/></svg>
+            </a>
+            <a class="dl-item" href="https://raw.githubusercontent.com/seelentov/discovery-releases/main/v1.0.0/discovery-agent-1.0.0-linux-x86_64.rpm">
+              <span class="dl-item__label">
+                <span class="dl-item__name">linux-x86_64.rpm</span>
+                <span class="dl-item__meta">Fedora/RHEL · 10 МБ</span>
+              </span>
+              <svg class="ic"><use href="#ic-download"/></svg>
+            </a>
+            <a class="dl-item" href="https://raw.githubusercontent.com/seelentov/discovery-releases/main/v1.0.0/discovery-agent-1.0.0-linux-arm64.rpm">
+              <span class="dl-item__label">
+                <span class="dl-item__name">linux-arm64.rpm</span>
+                <span class="dl-item__meta">Fedora/RHEL · 9,7 МБ</span>
+              </span>
+              <svg class="ic"><use href="#ic-download"/></svg>
+            </a>
+          </div>
+          <p class="platform-card__note">Единственный путь установки с готовой systemd-интеграцией «из коробки»: пакет сам создаёт системного пользователя, генерирует секретный ключ и запускает сервис. <code>sudo apt install ./discovery-agent-*.deb</code> или <code>sudo dnf install ./discovery-agent-*.rpm</code>.</p>
+        </div>
+
+      </div>
+
+      <details class="checksums-toggle">
+        <summary><svg class="ic" style="width:.85rem;height:.85rem;display:inline-block;vertical-align:-1px"><use href="#ic-chevron-down"/></svg> SHA-256 контрольные суммы</summary>
+        <div class="checksums-box">
+          <pre>7d3373bd554d1d1c5797a67a5ebc98ea11c628bb6804df62dbc0e0badee6a7c8  discovery-agent-1.0.0-macos-arm64.tar.gz
+531659e399e67d6c7e21f5cac70c9ee9f2dc13a9e188d49ce9252c31a58cf9ba  discovery-agent-1.0.0-macos-x86_64.tar.gz
+57cda6b3cb343c3b2f24134111c8206eb7fcd8349425a667a0955e99569b7028  discovery-agent-1.0.0-windows-x86_64.zip
+9c1626d1a57ee63550e8276d38b20c675051483d1613329e0a9c0d53e8ef1707  discovery-agent-1.0.0-linux-x86_64.deb
+184f29c8e927539f2231c5559e909cd6a20bc166222a45714bc3f07138ab8192  discovery-agent-1.0.0-linux-arm64.deb
+960090f8b9b5fd41a80fcd751537e9722f3fd6c58f409b355b40330ea64d19b1  discovery-agent-1.0.0-linux-x86_64.rpm
+55d1345efae72b8046490ed2313c32e2ebd320ac275e8fb19cfb252e58ed9c88  discovery-agent-1.0.0-linux-arm64.rpm</pre>
+        </div>
+      </details>
+
+      <p style="margin-top:1.2rem;font-size:.84rem;color:var(--text-muted)">
+        Нужна не последняя версия? Все версии со своими бинарниками хранятся в
+        <a href="https://github.com/seelentov/discovery-releases" target="_blank" rel="noopener" style="color:var(--accent-strong)">репозитории релизов</a>.
+      </p>
+
+    </div>
+  </section>
+
+  <section id="install">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Установка</span>
+        <h2>От архива до первого входа — пять шагов</h2>
+        <p>Один и тот же порядок для macOS/Windows/Linux-архива (для <code>.deb</code>/<code>.rpm</code> — проще: пакет уже создаёт пользователя и ключ сам, сразу переходите к шагу 5).</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step__num"></span>
+          <div class="step__body">
+            <p><strong>Распакуйте архив</strong> и перейдите в получившийся каталог.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step__num"></span>
+          <div class="step__body">
+            <p><strong>Создайте каталог для данных</strong> рядом с бинарником:</p>
+            <code class="code-block">mkdir -p data</code>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step__num"></span>
+          <div class="step__body">
+            <p><strong>Сгенерируйте секретный ключ</strong> — нужен для хранения SNMPv3/SSH-учёток и секретов уведомлений (обычный SNMP v1/v2c и сам дашборд работают без него):</p>
+            <code class="code-block">openssl rand -base64 32</code>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step__num"></span>
+          <div class="step__body">
+            <p><strong>Запустите</strong>, подставив полученный ключ:</p>
+            <code class="code-block">DISCOVERY_SECRET_KEY=&lt;ключ&gt; ./discovery-agent</code>
+            <p style="margin-top:.6rem">Windows (PowerShell): <code>$env:DISCOVERY_SECRET_KEY="&lt;ключ&gt;"; .\discovery-agent.exe</code></p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step__num"></span>
+          <div class="step__body">
+            <p><strong>Откройте <code>http://localhost:8088</code></strong> — логин <code>admin</code>/<code>admin</code>, система сразу потребует сменить пароль. Дальше — создайте профиль и конфигурацию дискаверинга, устройства появятся на странице «Устройства».</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trial">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Пробный период</span>
+        <h2>Без лицензии — 3 дня, с ограничением масштаба</h2>
+        <p>Ничего активировать не нужно: без отдельного файла лицензии discovery сама включает пробный период с момента первого запуска. Честно, без скрытых условий — вот полные цифры.</p>
+      </div>
+
+      <div class="limits-wrap">
+        <table class="limits-table">
+          <thead>
+            <tr><th>Ограничение</th><th>Лимит на пробный период</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Срок</td><td>3 дня с первого запуска</td></tr>
+            <tr><td>Устройств под мониторингом</td><td>50</td></tr>
+            <tr><td>Профилей</td><td>2</td></tr>
+            <tr><td>Конфигураций дискаверинга</td><td>1</td></tr>
+            <tr><td>Каналов уведомлений</td><td>1</td></tr>
+            <tr><td>Пользователей</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="expire-note">
+        <svg class="ic"><use href="#ic-triangle"/></svg>
+        <p><strong>По истечении 3 дней доступ блокируется полностью</strong> — не «только чтение», а весь дашборд и API, включая уже собранные данные, — до получения именной лицензии. Опрос устройств и тревоги в этот момент тоже останавливаются. Нужно больше времени или устройств на оценку — напишите, дам лицензию с более широкими рамками под вашу задачу.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="limitations">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Честно об ограничениях</span>
+        <h2>Что стоит знать перед установкой</h2>
+        <p>Не скрываю то, что ещё не сделано — чтобы вы могли сами оценить, подходит ли это для вашего случая прямо сейчас.</p>
+      </div>
+
+      <div class="caveat-grid">
+        <div class="caveat-card">
+          <svg class="ic"><use href="#ic-triangle"/></svg>
+          <h4>Бинарники не подписаны</h4>
+          <p>Ни Apple Developer ID, ни Windows Authenticode — macOS Gatekeeper и Windows SmartScreen предупредят при первом запуске (см. инструкции в карточках выше). Пакеты <code>.deb</code>/<code>.rpm</code> этого предупреждения не показывают.</p>
+        </div>
+        <div class="caveat-card">
+          <svg class="ic"><use href="#ic-triangle"/></svg>
+          <h4>TLS не настроен</h4>
+          <p>Дашборд и API поднимаются на обычном HTTP. Подходит для стенда за VPN/файрволом, не для прямой публикации в интернет без reverse-proxy с TLS перед ним.</p>
+        </div>
+        <div class="caveat-card">
+          <svg class="ic"><use href="#ic-triangle"/></svg>
+          <h4>Один узел, SQLite по умолчанию</h4>
+          <p>Конфигурация из архива — один процесс с SQLite-файлом рядом. Для роста за пределы одного узла есть Postgres/MySQL/ClickHouse/Cassandra — обсуждается при выдаче полной лицензии.</p>
+        </div>
+        <div class="caveat-card">
+          <svg class="ic"><use href="#ic-triangle"/></svg>
+          <h4>Проверка доступности (ping) — свои нюансы по ОС</h4>
+          <p>ICMP-опрос устройств использует непривилегированный сокет — на некоторых системах (особенно Linux-контейнеры) может потребоваться дополнительная настройка ядра. Подробности — в <code>QUICKSTART.md</code> внутри архива.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="wrap">
+      <span class="eyebrow"><svg class="ic"><use href="#ic-mail"/></svg>Нужно больше, чем пробный период?</span>
+      <h2>Напишите — обсудим лицензию под вашу сеть</h2>
+      <p class="lede">Полная лицензия снимает ограничения пробного периода; масштаб и стоимость зависят от размера сети и нужного набора функций.</p>
+      <div class="contact-cards">
+        <a class="contact-card" href="mailto:komkov222111@gmail.com?subject=discovery%20%E2%80%94%20%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F">
+          <svg class="ic"><use href="#ic-mail"/></svg>
+          <span><span class="lbl">EMAIL</span><br><span class="val">komkov222111@gmail.com</span></span>
+        </a>
+        <a class="contact-card" href="https://t.me/komkov01" target="_blank" rel="noopener">
+          <svg class="ic"><use href="#ic-telegram"/></svg>
+          <span><span class="lbl">TELEGRAM</span><br><span class="val">@komkov01</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <svg class="ic"><use href="#ic-radar"/></svg>
+      <span>discovery</span>
+    </a>
+    <p class="fine">Независимая разработка, 2026. Использование ПО регулируется <code>LICENSE.md</code> внутри каждого архива.</p>
+  </div>
+</footer>
+
+</body>
+</html>
