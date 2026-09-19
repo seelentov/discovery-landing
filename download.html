@@ -149,7 +149,7 @@
     <div class="wrap">
       <span class="eyebrow"><svg class="ic"><use href="#ic-download"/></svg>Скачать</span>
       <div class="version-pill"><span class="dot"></span>версия 1.0.0</div>
-      <h1>discovery под вашу ОС — без исходного кода, без сборки</h1>
+      <h1>discovery под вашу ОС</h1>
     </div>
   </section>
 
@@ -182,7 +182,6 @@
               <svg class="ic"><use href="#ic-download"/></svg>
             </a>
           </div>
-          <p class="platform-card__note">Бинарник не подписан сертификатом разработчика Apple — при первом запуске Gatekeeper его заблокирует. В архиве это объяснено (<code>README.txt</code>): правый клик → «Открыть», либо <code>xattr -d com.apple.quarantine ./discovery-agent</code>.</p>
         </div>
 
         <div class="platform-card">
@@ -202,7 +201,6 @@
               <svg class="ic"><use href="#ic-download"/></svg>
             </a>
           </div>
-          <p class="platform-card__note">Без цифровой подписи издателя — SmartScreen при первом запуске покажет «Windows защитила ваш компьютер». Это ожидаемо для непромышленного распространения, не признак повреждённого файла: «Подробнее» → «Выполнить в любом случае».</p>
         </div>
 
         <div class="platform-card">
@@ -243,7 +241,6 @@
               <svg class="ic"><use href="#ic-download"/></svg>
             </a>
           </div>
-          <p class="platform-card__note">Единственный путь установки с готовой systemd-интеграцией «из коробки»: пакет сам создаёт системного пользователя, генерирует секретный ключ и запускает сервис. <code>sudo apt install ./discovery-agent-*.deb</code> или <code>sudo dnf install ./discovery-agent-*.rpm</code>.</p>
         </div>
 
       </div>
@@ -266,53 +263,6 @@
         <a href="https://github.com/seelentov/discovery-releases" target="_blank" rel="noopener" style="color:var(--accent-strong)">репозитории релизов</a>.
       </p>
 
-    </div>
-  </section>
-
-  <section id="install">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Установка</span>
-        <h2>От архива до первого входа — пять шагов</h2>
-        <p>Один и тот же порядок для macOS/Windows/Linux-архива (для <code>.deb</code>/<code>.rpm</code> — проще: пакет уже создаёт пользователя и ключ сам, сразу переходите к шагу 5).</p>
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <span class="step__num"></span>
-          <div class="step__body">
-            <p><strong>Распакуйте архив</strong> и перейдите в получившийся каталог.</p>
-          </div>
-        </div>
-        <div class="step">
-          <span class="step__num"></span>
-          <div class="step__body">
-            <p><strong>Создайте каталог для данных</strong> рядом с бинарником:</p>
-            <code class="code-block">mkdir -p data</code>
-          </div>
-        </div>
-        <div class="step">
-          <span class="step__num"></span>
-          <div class="step__body">
-            <p><strong>Сгенерируйте секретный ключ</strong> — нужен для хранения SNMPv3/SSH-учёток и секретов уведомлений (обычный SNMP v1/v2c и сам дашборд работают без него):</p>
-            <code class="code-block">openssl rand -base64 32</code>
-          </div>
-        </div>
-        <div class="step">
-          <span class="step__num"></span>
-          <div class="step__body">
-            <p><strong>Запустите</strong>, подставив полученный ключ:</p>
-            <code class="code-block">DISCOVERY_SECRET_KEY=&lt;ключ&gt; ./discovery-agent</code>
-            <p style="margin-top:.6rem">Windows (PowerShell): <code>$env:DISCOVERY_SECRET_KEY="&lt;ключ&gt;"; .\discovery-agent.exe</code></p>
-          </div>
-        </div>
-        <div class="step">
-          <span class="step__num"></span>
-          <div class="step__body">
-            <p><strong>Откройте <code>http://localhost:8088</code></strong> — логин <code>admin</code>/<code>admin</code>, система сразу потребует сменить пароль. Дальше — создайте профиль и конфигурацию дискаверинга, устройства появятся на странице «Устройства».</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
