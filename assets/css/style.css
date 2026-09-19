@@ -184,17 +184,24 @@ nav.site-nav .nav-links a:hover { color: var(--text-primary); }
   transition: border-color .15s var(--ease), transform .15s var(--ease);
 }
 .feature-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.feature-card.featured {
+  grid-column: span 2;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, var(--surface-2)), var(--surface-2));
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+@media (max-width: 700px) { .feature-card.featured { grid-column: span 1; } }
 .feature-card .fi {
   width: 2.4rem; height: 2.4rem; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;
   background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent);
 }
+.feature-card.featured .fi { background: color-mix(in srgb, var(--accent) 26%, transparent); }
 .feature-card .fi .ic { width: 1.25rem; height: 1.25rem; }
 .feature-card h3 { font-size: 1rem; }
 .feature-card p { font-size: .89rem; color: var(--text-secondary); line-height: 1.58; }
 
 /* ============================================================================
-   SCREENSHOT GALLERY — five-page mosaic: one featured (full-width) card up top,
-   four equal cards below in a responsive 2x2 grid.
+   SCREENSHOT GALLERY — six-page mosaic: two featured (full-width) cards up top
+   (Overview, then AI Assistant), four equal cards below in a responsive 2x2 grid.
 ============================================================================ */
 .gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; }
 .gallery-card {

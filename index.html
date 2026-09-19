@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>discovery — система мониторинга сети для интернет-провайдеров</title>
-<meta name="description" content="discovery — система мониторинга сети для небольшого регионального интернет-провайдера: автодискаверинг устройств, SNMP/ICMP/SSH/Trap/Syslog, тревоги с гистерезисом, уведомления и топология. Разрабатываю и поддерживаю сам.">
+<meta name="description" content="discovery — система мониторинга сети для небольшого регионального интернет-провайдера: ИИ-ассистент дашборда, автодискаверинг устройств, SNMP/ICMP/SSH/Trap/Syslog, тревоги с гистерезисом, уведомления и топология. Разрабатываю и поддерживаю сам.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9' fill='none' stroke='%2335b6a6' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='5' fill='none' stroke='%2335b6a6' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='1.6' fill='%2335b6a6'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +33,7 @@
     <symbol id="ic-telegram" viewBox="0 0 24 24"><path d="M21 4 3 11.5l6 2M21 4l-3 16-8-6M21 4 10 13.5"/></symbol>
     <symbol id="ic-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/><path d="M12 8v4l3 2"/></symbol>
     <symbol id="ic-sliders" viewBox="0 0 24 24"><path d="M5 21V13M5 9V3M12 21v-4M12 13V3M19 21v-8M19 9V3"/><circle cx="5" cy="11" r="2"/><circle cx="12" cy="15" r="2"/><circle cx="19" cy="11" r="2"/></symbol>
+    <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z"/><circle cx="9" cy="10.5" r="1" class="ic-fill"/><circle cx="13" cy="10.5" r="1" class="ic-fill"/><circle cx="17" cy="10.5" r="1" class="ic-fill"/></symbol>
   </defs>
 </svg>
 
@@ -96,6 +97,11 @@
         <p>От первого сканирования подсети до тревоги в Telegram — без конструктора из десятка плагинов и без выделенного сервера под каждую подсистему.</p>
       </div>
       <div class="feature-grid">
+        <div class="feature-card featured">
+          <span class="fi"><svg class="ic"><use href="#ic-chat"/></svg></span>
+          <h3>ИИ-ассистент</h3>
+          <p>Спросите про состояние сети обычным языком вместо переключения между разделами дашборда — ассистент видит и может менять ровно то же, что и вы сами, в пределах ваших прав, и просит явное подтверждение на любое изменяющее действие: закрыть тревогу, поставить окно обслуживания — ничего не делает молча. Провайдер ИИ — на ваш выбор, вплоть до модели на собственном сервере (vLLM/Ollama) — данные не обязаны покидать вашу инфраструктуру.</p>
+        </div>
         <div class="feature-card">
           <span class="fi"><svg class="ic"><use href="#ic-radar"/></svg></span>
           <h3>Автодискаверинг</h3>
@@ -145,7 +151,7 @@
       <div class="section-head">
         <span class="eyebrow">Как это выглядит</span>
         <h2>Обзор</h2>
-        <p>Пять ключевых экранов дашборда — с реальными данными, снятыми на тестовом стенде, а не подрисованными макетами.</p>
+        <p>Шесть ключевых экранов дашборда — с реальными данными, снятыми на тестовом стенде, а не подрисованными макетами.</p>
       </div>
 
       <div class="gallery">
@@ -158,6 +164,17 @@
           <div class="frame">
             <div class="frame-bar"><span class="dot"></span>discovery · обзор сети</div>
             <img class="frame-shot" src="assets/img/shot-overview.png" alt="Дашборд discovery: обзор сети — активные тревоги, устройства под мониторингом, очереди обработки">
+          </div>
+        </div>
+
+        <div class="gallery-card featured">
+          <div class="gallery-card-head">
+            <span class="eyebrow"><svg class="ic"><use href="#ic-chat"/></svg>ИИ-ассистент</span>
+            <p>Чат прямо в дашборде: модель сама решила проверить тревоги, выполнила чтение и ответила на основе реального результата — ровно так же, как ответили бы вы сами, кликая по разделам.</p>
+          </div>
+          <div class="frame">
+            <div class="frame-bar"><span class="dot"></span>discovery · ИИ-ассистент</div>
+            <img class="frame-shot" src="assets/img/shot-assistant.png" alt="Чат с ИИ-ассистентом discovery — модель сама решила проверить тревоги и ответила на основе реального результата">
           </div>
         </div>
 
