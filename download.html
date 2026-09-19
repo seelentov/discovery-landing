@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>discovery — скачать</title>
 <meta name="description" content="Скачать discovery 1.0.0: бинарники под macOS, Windows и Linux (arm64/x86_64), условия пробного периода и инструкция по установке.">
+<link rel="canonical" href="https://seelentov.github.io/discovery-landing/download.html">
+<meta name="theme-color" content="#35b6a6">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="discovery">
+<meta property="og:title" content="discovery — скачать">
+<meta property="og:description" content="Бинарники под macOS, Windows и Linux (arm64/x86_64), условия пробного периода и инструкция по установке.">
+<meta property="og:url" content="https://seelentov.github.io/discovery-landing/download.html">
+<meta property="og:image" content="https://seelentov.github.io/discovery-landing/assets/img/shot-overview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="discovery — скачать">
+<meta name="twitter:description" content="Бинарники под macOS, Windows и Linux (arm64/x86_64), условия пробного периода и инструкция по установке.">
+<meta name="twitter:image" content="https://seelentov.github.io/discovery-landing/assets/img/shot-overview.png">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9' fill='none' stroke='%2335b6a6' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='5' fill='none' stroke='%2335b6a6' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='1.6' fill='%2335b6a6'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -120,6 +132,7 @@
     <symbol id="ic-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></symbol>
     <symbol id="ic-squares" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></symbol>
     <symbol id="ic-triangle" viewBox="0 0 24 24"><path d="M12 4 22 20H2L12 4Z"/><path d="M12 10v4M12 17h.01"/></symbol>
+    <symbol id="ic-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M14 9l2 2"/></symbol>
     <symbol id="ic-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
   </defs>
 </svg>
@@ -136,6 +149,7 @@
         <a href="index.html#look">Как это выглядит</a>
         <a href="docs.html">Документация</a>
         <a href="download.html">Скачать</a>
+        <a href="index.html#faq">FAQ</a>
         <a href="index.html#contact">Контакты</a>
       </div>
       <a class="btn btn-primary" href="mailto:komkov222111@gmail.com?subject=discovery%20%E2%80%94%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81">Написать</a>
@@ -266,6 +280,72 @@
     </div>
   </section>
 
+  <section id="quickstart">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Быстрый старт</span>
+        <h2>От архива до первого устройства на дашборде</h2>
+        <p>Ровно то, что нужно сделать после скачивания — без вызова инженера и без документации на 40 страниц.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step__num"></span>
+          <div class="step__body">
+            <p><strong>Установите пакет.</strong> На Linux — одной командой пакетного менеджера, systemd-юнит и сервис поднимутся сами. На Windows/macOS — распакуйте архив и запустите бинарник. Для универсального пути есть Docker-образ.</p>
+            <span class="code-block">sudo apt install ./discovery-agent.deb<br>sudo dnf install ./discovery-agent.rpm</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step__num"></span>
+          <div class="step__body">
+            <p><strong>Откройте дашборд</strong> на <code>http://&lt;адрес сервера&gt;:8088</code> и войдите как <code>admin</code> / <code>admin</code>. Систему сразу попросит сменить пароль — это ожидаемое поведение, не ошибка.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step__num"></span>
+          <div class="step__body">
+            <p><strong>Заведите профиль и дискаверинг.</strong> Для первой проверки достаточно пары стандартных OID (<code>sysDescr</code>/<code>sysUpTime</code>) в профиле и подсети с SNMP read-community вашего тестового устройства в конфигурации сканирования.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step__num"></span>
+          <div class="step__body">
+            <p><strong>Запустите вручную</strong> кнопкой «▶» на карточке дискаверинга, не дожидаясь расписания — устройство появится на странице «Устройства».</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="before-install">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Что важно знать</span>
+        <h2>Перед тем как открывать доступ коллегам</h2>
+        <p>Из документации — то, что стоит прочитать до, а не после того, как дашборд окажется виден лишним людям.</p>
+      </div>
+
+      <div class="caveat-grid">
+        <div class="caveat-card">
+          <svg class="ic"><use href="#ic-triangle"/></svg>
+          <h4>Порт 8088 — не для интернета</h4>
+          <p>Держите дашборд за firewall/VPN. Вход защищён от подбора пароля, но по умолчанию трафик, включая пароль при входе, не шифруется — TLS сам discovery не умеет.</p>
+        </div>
+        <div class="caveat-card">
+          <svg class="ic"><use href="#ic-lock"/></svg>
+          <h4>Нужен HTTPS — поставьте свой прокси</h4>
+          <p>Обратный прокси (nginx/Caddy/Traefik) со своим сертификатом перед <code>127.0.0.1:8088</code>, если дашборд открывают из-за пределов доверенной локальной сети.</p>
+        </div>
+        <div class="caveat-card">
+          <svg class="ic"><use href="#ic-key"/></svg>
+          <h4>admin/admin при первом входе — не баг</h4>
+          <p>Все разделы, включая административные, заблокированы до смены пароля с этой парой по умолчанию — так и задумано.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="trial">
     <div class="wrap">
       <div class="section-head">
@@ -288,6 +368,18 @@
             <tr><td>Пользователей</td><td>1</td></tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="expire-note">
+        <svg class="ic"><use href="#ic-clock"/></svg>
+        <p><strong>По истечении 3 дней доступ блокируется полностью</strong> — любой запрос к системе, включая обычное чтение, получает ошибку «license required», а дашборд не показывает данные. Это расчётное поведение пробного периода, а не сбой: чтобы продолжить, напишите за лицензией.</p>
+      </div>
+
+      <div class="notes-grid">
+        <div class="price-note">
+          <svg class="ic"><use href="#ic-check-circle"/></svg>
+          <p><strong>С платной лицензией эта проблема не повторится</strong> — если забыть её продлить, сеть не «ослепнет»: устройства продолжат опрашиваться, а тревоги — срабатывать. Заблокируется только создание нового (новые профили, устройства, конфигурации) — до продления.</p>
+        </div>
       </div>
     </div>
   </section>

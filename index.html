@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>discovery — система мониторинга сети для интернет-провайдеров</title>
 <meta name="description" content="discovery — система мониторинга сети для небольшого регионального интернет-провайдера: ИИ-ассистент дашборда, автодискаверинг устройств, SNMP/ICMP/SSH/Trap/Syslog, тревоги с гистерезисом, уведомления и топология. Разрабатываю и поддерживаю сам.">
+<link rel="canonical" href="https://seelentov.github.io/discovery-landing/">
+<meta name="theme-color" content="#35b6a6">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="discovery">
+<meta property="og:title" content="discovery — система мониторинга сети для интернет-провайдеров">
+<meta property="og:description" content="Автодискаверинг устройств, SNMP/ICMP/SSH/Trap/Syslog, тревоги с гистерезисом, топология и ИИ-ассистент дашборда. Разворачивается за один вечер.">
+<meta property="og:url" content="https://seelentov.github.io/discovery-landing/">
+<meta property="og:image" content="https://seelentov.github.io/discovery-landing/assets/img/shot-overview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="discovery — система мониторинга сети для интернет-провайдеров">
+<meta name="twitter:description" content="Автодискаверинг устройств, SNMP/ICMP/SSH/Trap/Syslog, тревоги с гистерезисом, топология и ИИ-ассистент дашборда.">
+<meta name="twitter:image" content="https://seelentov.github.io/discovery-landing/assets/img/shot-overview.png">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9' fill='none' stroke='%2335b6a6' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='5' fill='none' stroke='%2335b6a6' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='1.6' fill='%2335b6a6'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,6 +46,7 @@
     <symbol id="ic-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/><path d="M12 8v4l3 2"/></symbol>
     <symbol id="ic-sliders" viewBox="0 0 24 24"><path d="M5 21V13M5 9V3M12 21v-4M12 13V3M19 21v-8M19 9V3"/><circle cx="5" cy="11" r="2"/><circle cx="12" cy="15" r="2"/><circle cx="19" cy="11" r="2"/></symbol>
     <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z"/><circle cx="9" cy="10.5" r="1" class="ic-fill"/><circle cx="13" cy="10.5" r="1" class="ic-fill"/><circle cx="17" cy="10.5" r="1" class="ic-fill"/></symbol>
+    <symbol id="ic-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
   </defs>
 </svg>
 
@@ -50,6 +63,7 @@
         <a href="#deploy">Развёртывание</a>
         <a href="docs.html">Документация</a>
         <a href="download.html">Скачать</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Контакты</a>
       </div>
       <a class="btn btn-primary" href="mailto:komkov222111@gmail.com?subject=discovery%20%E2%80%94%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81">Написать</a>
@@ -80,11 +94,23 @@
         <div class="hero-foot">
           <span class="item"><svg class="ic"><use href="#ic-download"/></svg>Разворачивается за один вечер</span>
           <span class="item"><svg class="ic"><use href="#ic-key"/></svg>Пробная лицензия под ваш стенд</span>
+          <span class="item"><svg class="ic"><use href="#ic-lock"/></svg>Без облака — данные на вашей инфраструктуре</span>
         </div>
       </div>
       <div class="frame">
         <div class="frame-bar"><span class="dot"></span>discovery · обзор сети</div>
         <img class="frame-shot" src="assets/img/shot-overview.png" alt="Дашборд discovery: обзор сети — активные тревоги, устройства под мониторингом, очереди обработки">
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip">
+    <div class="wrap trust-strip-inner">
+      <p><strong>Кто это делает.</strong> Автор — инженер, который годами сам занимается эксплуатацией мониторинга сетей на тысячи устройств, и написал discovery, чтобы закрыть то, чего под рукой не хватало в типовых инструментах общего назначения.</p>
+      <div class="trust-facts">
+        <span class="item"><svg class="ic"><use href="#ic-terminal"/></svg>Ядро на Rust — один процесс, без JVM/Node в проде</span>
+        <span class="item"><svg class="ic"><use href="#ic-radar"/></svg>Обкатывается на живом тестовом стенде, а не только на макетах</span>
+        <span class="item"><svg class="ic"><use href="#ic-mail"/></svg>Разработка и поддержка напрямую с автором, без очереди тикетов</span>
       </div>
     </div>
   </section>
@@ -100,7 +126,7 @@
         <div class="feature-card featured">
           <span class="fi"><svg class="ic"><use href="#ic-chat"/></svg></span>
           <h3>ИИ-ассистент</h3>
-          <p>Спросите про сеть обычным языком — меняет данные только с вашим подтверждением, провайдер ИИ вплоть до модели на своём сервере.</p>
+          <p>Спросите про сеть обычным языком — ассистент не имеет собственных прав, видит и меняет ровно то же, что и вы, и требует подтверждения на любое изменение. Провайдер ИИ — GigaChat, OpenRouter или свой сервер с vLLM/Ollama.</p>
         </div>
         <div class="feature-card">
           <span class="fi"><svg class="ic"><use href="#ic-radar"/></svg></span>
@@ -218,6 +244,56 @@
     </div>
   </section>
 
+  <section id="compare">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Сравнение</span>
+        <h2>discovery — не замена Zabbix. Это инструмент для другой части работы</h2>
+        <p>Если сеть уже мониторится в Zabbix, PRTG или LibreNMS и всё устраивает — менять шило на мыло смысла нет. discovery имеет смысл смотреть, когда топологию, группировку тревог и профили под конкретное оборудование провайдера приходится настраивать и поддерживать руками, и на это уходит время.</p>
+      </div>
+
+      <div class="limits-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Параметр</th><th>Zabbix / PRTG / LibreNMS</th><th>discovery</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Стек для запуска</td>
+              <td>СУБД + веб-сервер + агенты — несколько сервисов, которые нужно поддерживать отдельно</td>
+              <td>Один бинарник и один <code>config.toml</code></td>
+            </tr>
+            <tr>
+              <td>Структура сети провайдера</td>
+              <td>Общего назначения — топологию, дома и подъезды описываете сами</td>
+              <td>Автодискаверинг, профили под тип оборудования и топология с подавлением вторичных тревог по аплинку — из коробки</td>
+            </tr>
+            <tr>
+              <td>ИИ-ассистент по дашборду</td>
+              <td>Нет, либо сторонняя надстройка</td>
+              <td>Встроен, вплоть до модели на вашем сервере</td>
+            </tr>
+            <tr>
+              <td>Зрелость и экосистема</td>
+              <td>Годы разработки, тысячи готовых шаблонов и интеграций</td>
+              <td>Версия 1.0 — меньше готовых интеграций, зато точечная доработка под вашу сеть лично автором</td>
+            </tr>
+            <tr>
+              <td>Поддержка</td>
+              <td>Сообщество или платная поддержка вендора</td>
+              <td>Прямая связь с автором — от вопроса до доработки под сценарий</td>
+            </tr>
+            <tr>
+              <td>Стоимость входа</td>
+              <td>Бесплатно (open source) или лицензия энтерпрайз-уровня</td>
+              <td>3 дня пробного периода без документов, дальше — лицензия под масштаб сети</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <section id="deploy">
     <div class="wrap">
       <div class="section-head">
@@ -267,6 +343,65 @@
           <svg class="ic"><use href="#ic-terminal"/></svg>
           <p><strong>Готов дорабатывать под конкретного заказчика</strong> — нужна интеграция, нетиповой сценарий тревог или своя логика под вашу сеть — обсуждаем и делаем.</p>
         </div>
+        <div class="price-note">
+          <svg class="ic"><use href="#ic-router"/></svg>
+          <p><strong>Работает на скромном железе</strong> — ядро на Rust, один процесс без JVM/Node/Docker в проде, отдельный сервер под сам мониторинг не нужен.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Частые вопросы</h2>
+        <p>То, что обычно спрашивают перед тем, как решиться поставить систему мониторинга на боевую сеть.</p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Чем discovery отличается от Zabbix, PRTG или LibreNMS?<svg class="ic ic-chevron"><use href="#ic-chevron-down"/></svg></summary>
+          <div class="faq-body">
+            <p>Это не универсальный монитор «для всего», а инструмент под структуру сети провайдера: автодискаверинг, профили оборудования, топология домов и подъездов, подавление вторичных тревог по аплинку и ИИ-ассистент — сразу из коробки, без месяцев настройки шаблонов и плагинов вручную. Подробное сравнение — <a href="#compare">в разделе выше</a>.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Данные сети обязательно уходят во внешний ИИ-сервис?<svg class="ic ic-chevron"><use href="#ic-chevron-down"/></svg></summary>
+          <div class="faq-body">
+            <p>Нет. Провайдера ИИ-ассистента выбираете вы: GigaChat, OpenRouter — или собственный сервер с vLLM/Ollama, и тогда данные вообще не покидают вашу инфраструктуру. Публичный API — тоже вариант, но не единственный.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Что будет, если мы забудем продлить лицензию вовремя?<svg class="ic ic-chevron"><use href="#ic-chevron-down"/></svg></summary>
+          <div class="faq-body">
+            <p>Ничего катастрофического — сеть не «ослепнет». Устройства продолжают опрашиваться, тревоги продолжают срабатывать и уведомления приходить. Ограничивается только создание нового: новые профили, устройства и конфигурации дискаверинга — до продления. Это осознанно отличается от автоматического пробного периода, где по истечении срока доступ блокируется полностью (см. условия на <a href="download.html#trial">странице загрузки</a>) — для уже работающей системы полная потеря видимости сети из-за забытого продления недопустима.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Версия 1.0.0 — насколько это стабильно для продакшена?<svg class="ic ic-chevron"><use href="#ic-chevron-down"/></svg></summary>
+          <div class="faq-body">
+            <p>Свежая версия означает, что я как автор лично включён в каждое внедрение: смотрю логи, донастраиваю профили под ваше оборудование, быстро правлю найденные шероховатости. Начать пилотом на части сети или на демо-стенде — нормальный путь для любого нового инструмента мониторинга, а не признак недоверия к продукту.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Исходный код открыт?<svg class="ic ic-chevron"><use href="#ic-chevron-down"/></svg></summary>
+          <div class="faq-body">
+            <p>Открыты репозиторий документации и репозиторий готовых сборок — сама кодовая база discovery проприетарная. Если перед внедрением в продакшен нужен аудит безопасности, формат обсуждаем отдельно.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Какая поддержка входит и можно ли заказать доработку под нашу сеть?<svg class="ic ic-chevron"><use href="#ic-chevron-down"/></svg></summary>
+          <div class="faq-body">
+            <p>Да — от точечных консультаций до доработки под нетиповой сценарий тревог или интеграцию с вашими системами. Конкретный объём поддержки и условия обсуждаем индивидуально при лицензировании.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Как понять, потянет ли discovery масштаб нашей сети?<svg class="ic ic-chevron"><use href="#ic-chevron-down"/></svg></summary>
+          <div class="faq-body">
+            <p>Точного порога по числу устройств я сейчас не публикую — ядро на Rust и рассчитано на скромные ресурсы сервера, но самый надёжный способ проверить — развернуть пробную версию на части вашей сети или на демо-стенде и посмотреть на реальную нагрузку.</p>
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -276,6 +411,20 @@
       <span class="eyebrow"><svg class="ic"><use href="#ic-mail"/></svg>Контакты</span>
       <h2>Покажу на демо-стенде или сразу на ваших устройствах</h2>
       <p class="lede">Пишите с вопросами, по пилоту на части сети или за условиями.</p>
+      <div class="flow">
+        <div class="flow-step">
+          <span class="flow-step__num"></span>
+          <p><strong>Пишете</strong> в Telegram или на email — коротко о сети и что сейчас болит.</p>
+        </div>
+        <div class="flow-step">
+          <span class="flow-step__num"></span>
+          <p><strong>Смотрим вместе</strong> на демо-стенде или сразу на паре ваших устройств.</p>
+        </div>
+        <div class="flow-step">
+          <span class="flow-step__num"></span>
+          <p><strong>Пилот на части сети</strong> с пробной лицензией — и уже потом решение по внедрению.</p>
+        </div>
+      </div>
       <div class="contact-cards">
         <a class="contact-card" href="mailto:komkov222111@gmail.com?subject=discovery%20%E2%80%94%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81">
           <svg class="ic"><use href="#ic-mail"/></svg>
