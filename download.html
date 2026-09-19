@@ -150,7 +150,6 @@
       <span class="eyebrow"><svg class="ic"><use href="#ic-download"/></svg>Скачать</span>
       <div class="version-pill"><span class="dot"></span>версия 1.0.0</div>
       <h1>discovery под вашу ОС — без исходного кода, без сборки</h1>
-      <p class="lede">Бинарники и пакеты ниже — скомпилированный результат, не архив с исходниками: то же самое юридическое ограничение на копирование (<a href="https://raw.githubusercontent.com/seelentov/discovery-releases/main/v1.0.0/LICENSE.md" style="color:var(--accent-strong)">LICENSE.md</a>, тот же файл лежит внутри каждого архива), но без Docker/Rust/Node на вашей машине.</p>
     </div>
   </section>
 
@@ -263,7 +262,7 @@
       </details>
 
       <p style="margin-top:1.2rem;font-size:.84rem;color:var(--text-muted)">
-        Нужна не последняя версия? Все версии со своими бинарниками хранятся в
+        Все версии со своими бинарниками хранятся в
         <a href="https://github.com/seelentov/discovery-releases" target="_blank" rel="noopener" style="color:var(--accent-strong)">репозитории релизов</a>.
       </p>
 
@@ -322,7 +321,7 @@
       <div class="section-head">
         <span class="eyebrow">Пробный период</span>
         <h2>Без лицензии — 3 дня, с ограничением масштаба</h2>
-        <p>Ничего активировать не нужно: без отдельного файла лицензии discovery сама включает пробный период с момента первого запуска. Честно, без скрытых условий — вот полные цифры.</p>
+        <p>Ничего активировать не нужно: без отдельного файла лицензии discovery сама включает пробный период с момента первого запуска.</p>
       </div>
 
       <div class="limits-wrap">
@@ -339,44 +338,6 @@
             <tr><td>Пользователей</td><td>1</td></tr>
           </tbody>
         </table>
-      </div>
-
-      <div class="expire-note">
-        <svg class="ic"><use href="#ic-triangle"/></svg>
-        <p><strong>По истечении 3 дней доступ блокируется полностью</strong> — не «только чтение», а весь дашборд и API, включая уже собранные данные, — до получения именной лицензии. Опрос устройств и тревоги в этот момент тоже останавливаются. Нужно больше времени или устройств на оценку — напишите, дам лицензию с более широкими рамками под вашу задачу.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="limitations">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Честно об ограничениях</span>
-        <h2>Что стоит знать перед установкой</h2>
-        <p>Не скрываю то, что ещё не сделано — чтобы вы могли сами оценить, подходит ли это для вашего случая прямо сейчас.</p>
-      </div>
-
-      <div class="caveat-grid">
-        <div class="caveat-card">
-          <svg class="ic"><use href="#ic-triangle"/></svg>
-          <h4>Бинарники не подписаны</h4>
-          <p>Ни Apple Developer ID, ни Windows Authenticode — macOS Gatekeeper и Windows SmartScreen предупредят при первом запуске (см. инструкции в карточках выше). Пакеты <code>.deb</code>/<code>.rpm</code> этого предупреждения не показывают.</p>
-        </div>
-        <div class="caveat-card">
-          <svg class="ic"><use href="#ic-triangle"/></svg>
-          <h4>TLS не настроен</h4>
-          <p>Дашборд и API поднимаются на обычном HTTP. Подходит для стенда за VPN/файрволом, не для прямой публикации в интернет без reverse-proxy с TLS перед ним.</p>
-        </div>
-        <div class="caveat-card">
-          <svg class="ic"><use href="#ic-triangle"/></svg>
-          <h4>Один узел, SQLite по умолчанию</h4>
-          <p>Конфигурация из архива — один процесс с SQLite-файлом рядом. Для роста за пределы одного узла есть Postgres/MySQL/ClickHouse/Cassandra — обсуждается при выдаче полной лицензии.</p>
-        </div>
-        <div class="caveat-card">
-          <svg class="ic"><use href="#ic-triangle"/></svg>
-          <h4>Проверка доступности (ping) — свои нюансы по ОС</h4>
-          <p>ICMP-опрос устройств использует непривилегированный сокет — на некоторых системах (особенно Linux-контейнеры) может потребоваться дополнительная настройка ядра. Подробности — в <code>QUICKSTART.md</code> внутри архива.</p>
-        </div>
       </div>
     </div>
   </section>
