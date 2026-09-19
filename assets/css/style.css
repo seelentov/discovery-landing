@@ -1,10 +1,4 @@
-/* ============================================================================
-   TOKENS — lifted directly from discovery's own dashboard (crates/web/frontend/
-   src/styles/global.css), dark palette only. The product's identity is dark NOC
-   glass + teal; this page deliberately stays in that one world rather than also
-   building a light variant — it's showing screenshots of a dark UI, and a light
-   wrapper around a dark product would read as two different pieces of software.
-============================================================================ */
+
 :root {
   --bg-canvas:      #0a1013;
   --surface-1:      #0f171b;
