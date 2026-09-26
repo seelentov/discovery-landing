@@ -3,4 +3,12 @@
   <url><loc>https://seelentov.github.io/discovery-landing/</loc><priority>1.0</priority></url>
   <url><loc>https://seelentov.github.io/discovery-landing/download.html</loc><priority>0.8</priority></url>
   <url><loc>https://seelentov.github.io/discovery-landing/docs.html</loc><priority>0.7</priority></url>
+  <url><loc>https://seelentov.github.io/discovery-landing/monitoring-setevogo-oborudovaniya.html</loc><priority>0.9</priority></url>
+  <url><loc>https://seelentov.github.io/discovery-landing/snmp-monitoring.html</loc><priority>0.9</priority></url>
+  <url><loc>https://seelentov.github.io/discovery-landing/monitoring-dlya-provaydera.html</loc><priority>0.9</priority></url>
+  <url><loc>https://seelentov.github.io/discovery-landing/docs/installation.html</loc><priority>0.7</priority></url>
+  <url><loc>https://seelentov.github.io/discovery-landing/docs/snmp-monitoring.html</loc><priority>0.7</priority></url>
+  <url><loc>https://seelentov.github.io/discovery-landing/docs/alerts.html</loc><priority>0.7</priority></url>
+  <url><loc>https://seelentov.github.io/discovery-landing/docs/topology.html</loc><priority>0.7</priority></url>
+  <url><loc>https://seelentov.github.io/discovery-landing/docs/api.html</loc><priority>0.7</priority></url>
 </urlset>
