@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>discovery — система мониторинга сети для интернет-провайдеров</title>
-<meta name="description" content="discovery — система мониторинга сети для небольшого регионального интернет-провайдера: ИИ-ассистент дашборда, автодискаверинг устройств, SNMP/ICMP/SSH/Trap/Syslog, тревоги с гистерезисом, уведомления и топология. Разрабатываю и поддерживаю сам.">
+<meta name="description" content="discovery — система мониторинга сети для небольшого регионального интернет-провайдера: автодискаверинг устройств и сервисов, SNMP/ICMP/SSH/Trap/Syslog, тревоги 1.2.0 с подтверждением, snooze, эскалацией и гистерезисом, топология, резервные копии и ИИ-ассистент.">
 <link rel="canonical" href="https://seelentov.github.io/discovery-landing/">
 <meta name="theme-color" content="#35b6a6">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="discovery">
 <meta property="og:title" content="discovery — система мониторинга сети для интернет-провайдеров">
-<meta property="og:description" content="Автодискаверинг устройств, SNMP/ICMP/SSH/Trap/Syslog, тревоги с гистерезисом, топология и ИИ-ассистент дашборда. Разворачивается за один вечер.">
+<meta property="og:description" content="Автодискаверинг устройств и сервисов, SNMP/ICMP/SSH/Trap/Syslog, управляемые тревоги 1.2.0, топология, резервные копии и ИИ-ассистент дашборда. Разворачивается за один вечер.">
 <meta property="og:url" content="https://seelentov.github.io/discovery-landing/">
 <meta property="og:image" content="https://seelentov.github.io/discovery-landing/assets/img/shot-overview.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="discovery — система мониторинга сети для интернет-провайдеров">
-<meta name="twitter:description" content="Автодискаверинг устройств, SNMP/ICMP/SSH/Trap/Syslog, тревоги с гистерезисом, топология и ИИ-ассистент дашборда.">
+<meta name="twitter:description" content="Автодискаверинг устройств и сервисов, SNMP/ICMP/SSH/Trap/Syslog, управляемые тревоги 1.2.0, топология, резервные копии и ИИ-ассистент дашборда.">
 <meta name="twitter:image" content="https://seelentov.github.io/discovery-landing/assets/img/shot-overview.png">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9' fill='none' stroke='%2335b6a6' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='5' fill='none' stroke='%2335b6a6' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='1.6' fill='%2335b6a6'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,7 +82,7 @@
       <div class="hero-copy">
         <span class="eyebrow"><svg class="ic"><use href="#ic-radar"/></svg>Система мониторинга сети</span>
         <h1>Узнавайте об обрыве связи раньше,<br>чем абонент дозвонится в поддержку<span class="hl">.</span></h1>
-        <p class="lede">discovery сама находит устройства в сети провайдера, опрашивает их по SNMP/ICMP/SSH, ловит обрывы и всплески нагрузки — и присылает тревогу с историей до того, как об этом узнают из жалоб.</p>
+        <p class="lede">discovery сама находит устройства и сервисы в сети провайдера, опрашивает их по SNMP/ICMP/SSH, ловит обрывы и всплески нагрузки — а дежурный получает управляемую тревогу с историей, эскалацией и понятным способом действия.</p>
         <div class="cta-row">
           <a class="btn btn-primary btn-lg" href="mailto:komkov222111@gmail.com?subject=discovery%20%E2%80%94%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81">
             <svg class="ic"><use href="#ic-mail"/></svg>Написать на email
@@ -107,9 +107,9 @@
   <section id="features">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Что делает discovery</span>
+        <span class="eyebrow">Что делает discovery · версия 1.2.0</span>
         <h2>Один процесс, который закрывает весь цикл мониторинга сети провайдера</h2>
-        <p>От первого сканирования подсети до тревоги в Telegram — без конструктора из десятка плагинов и без выделенного сервера под каждую подсистему.</p>
+        <p>От первого сканирования подсети до разбора и закрытия тревоги — без конструктора из десятка плагинов и без выделенного сервера под каждую подсистему.</p>
       </div>
       <div class="feature-grid">
         <div class="feature-card featured">
@@ -124,8 +124,8 @@
         </div>
         <div class="feature-card">
           <span class="fi"><svg class="ic"><use href="#ic-bell"/></svg></span>
-          <h3>Тревоги с гистерезисом</h3>
-          <p>Отдельные условия активации и снятия плюс анти-флаппинг.</p>
+          <h3>Тревоги без лишнего шума</h3>
+          <p>Гистерезис и анти-флаппинг, отдельные тревоги device down, SNMP down и stale metric, а также независимые тревоги по интерфейсам и компонентам.</p>
         </div>
         <div class="feature-card">
           <span class="fi"><svg class="ic"><use href="#ic-wifi"/></svg></span>
@@ -139,13 +139,28 @@
         </div>
         <div class="feature-card">
           <span class="fi"><svg class="ic"><use href="#ic-mail"/></svg></span>
-          <h3>Уведомления</h3>
-          <p>Email, Telegram, webhook — и матрица уведомлений, чтобы дежурный получал своё.</p>
+          <h3>Жизненный цикл тревоги</h3>
+          <p>Подтверждение, временное подавление snooze, повторные уведомления и эскалация по уровням. Email, Telegram и webhook; всё сохраняется в истории и останавливается после recovery или ручного закрытия.</p>
         </div>
         <div class="feature-card">
           <span class="fi"><svg class="ic"><use href="#ic-layout"/></svg></span>
           <h3>Топология и групповые тревоги</h3>
-          <p>Discovery резолвит связи между устройствами и подавляет вторичные тревоги ниже упавшего узла — вместо сотни уведомлений из-за одной аварии на магистрали.</p>
+          <p>Discovery резолвит связи по правилам и LLDP/CDP-соседям, а затем подавляет вторичные тревоги ниже упавшего узла — вместо сотни уведомлений из-за одной аварии на магистрали.</p>
+        </div>
+        <div class="feature-card">
+          <span class="fi"><svg class="ic"><use href="#ic-radar"/></svg></span>
+          <h3>Дискаверинг сервисов</h3>
+          <p>Один ограниченный по времени запуск проверяет SNMP, SSH, HTTP/HTTPS и TCP с таймаутами, показывает задержку и назначает профиль по успешному результату.</p>
+        </div>
+        <div class="feature-card">
+          <span class="fi"><svg class="ic"><use href="#ic-terminal"/></svg></span>
+          <h3>Операторские действия</h3>
+          <p>Из карточки устройства можно безопасно запустить test, poll now, rediscover или backup. RBAC, очередь, дедупликация job и результат — под контролем.</p>
+        </div>
+        <div class="feature-card">
+          <span class="fi"><svg class="ic"><use href="#ic-history"/></svg></span>
+          <h3>Резервные копии конфигураций</h3>
+          <p>Read-only backup по SSH по расписанию или вручную, шифрование хранения, удаление секретов и ограниченное сравнение изменений между версиями.</p>
         </div>
       </div>
     </div>
@@ -263,9 +278,19 @@
               <td>Встроен, вплоть до модели на вашем сервере</td>
             </tr>
             <tr>
+              <td>Работа с тревогами</td>
+              <td>Зависит от шаблонов и ручной настройки</td>
+              <td>Подтверждение, snooze, повторы, эскалация, гистерезис и отдельные device/SNMP/stale-состояния</td>
+            </tr>
+            <tr>
+              <td>Обслуживание устройств</td>
+              <td>Обычно отдельные инструменты и скрипты</td>
+              <td>Безопасные test/poll/rediscover/backup-действия, резервные копии конфигураций и diff</td>
+            </tr>
+            <tr>
               <td>Зрелость и экосистема</td>
               <td>Годы разработки, тысячи готовых шаблонов и интеграций</td>
-              <td>Версия 1.0 — меньше готовых интеграций, зато точечная доработка под вашу сеть лично автором</td>
+              <td>Версия 1.2.0 — меньше готовых интеграций, зато точечная доработка под вашу сеть лично автором</td>
             </tr>
             <tr>
               <td>Поддержка</td>
